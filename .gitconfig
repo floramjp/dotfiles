@@ -16,15 +16,14 @@
   la = "!git config -l | grep alias | cut -c 7-"
 
   # frequent aliases
-  commit  = "!git add -A && git commit -m "
-  kam     = "commit -am \"(>'')>\""
-  amen    = !git add -A && git commit --amend --no-edit
-  push    = !git push origin $(git rev-parse --abbrev-ref HEAD)
-  fetch   = !git fetch --all && git rebase origin/master
-  new     = !git checkout -b
-  update  = !git checkout master && git pull
-  co      = checkout
-  s       = status
+  kam      = "commit -am \"(>'')>\""
+  amend    = !git add -A && git commit --amend --no-edit
+  push     = !git push origin $(git rev-parse --abbrev-ref HEAD)
+  fetch    = !git fetch --all && git rebase origin/master
+  new      = !git checkout -b
+  update   = !git checkout master && git pull
+  co       = checkout
+  s        = status
 
   # good-to-have-but-not-frequent aliases
   a    = add
@@ -32,7 +31,6 @@
   ca   = commit -a
   caar = commit -a --amend --reuse-message=HEAD
   caf  = commit -a --fixup
-  cam  = commit -am
   cm   = commit -m
   d    = diff
   dc   = diff --cached
