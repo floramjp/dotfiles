@@ -1,9 +1,9 @@
 # Flora's ~/.bashrc
 
-# editor
-export EDITOR=vim
+# EDITOR
+export EDITOR=sublime
 
-# get current branch in git repo
+# DISPLAY: get current branch in git repo
 function parse_git_branch() {
   BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
   if [ ! "${BRANCH}" == "" ]
@@ -15,7 +15,7 @@ function parse_git_branch() {
   fi
 }
 
-# get current status of git repo
+# DISPLAY: get current status of git repo
 function parse_git_dirty {
   status=`git status 2>&1 | tee`
   dirty=`echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
@@ -49,6 +49,7 @@ function parse_git_dirty {
     echo ""
   fi
 }
-
-export PATH="$HOME/Library/Python/2.7/bin/:$PATH"
 export PS1="\[\e[36m\]\u\[\e[m\]@\W\[\e[34m\]\`parse_git_branch\`\[\e[m\]\[\e[37m\]:\[\e[m\] "
+
+# DISPLAY: branches in order of recent edits
+alias branches="git for-each-ref --sort=-committerdate refs/heads/ --format='%(committerdate:short) (%(color:green)%(committerdate:relative)%(color:reset)) %(authorname) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset)     - %(contents:subject)'"
