@@ -1,0 +1,73 @@
+[user]
+  name = Flora Park
+  email = flora.m.park@gmail.com
+
+[url "git@github.com:"]
+  insteadOf = https://github.com/
+
+[color]
+ ui = auto
+
+[merge]
+  tool = fugitive
+
+[alias]
+  a    = add
+  b    = branch
+  ca   = commit -a
+  caar = commit -a --amend --reuse-message=HEAD
+  caf  = commit -a --fixup
+  cam  = commit -am
+  cm   = commit -m
+  kam  = "commit -am \"(>'')>\""
+  co   = checkout
+  d    = diff
+  dc   = diff --cached
+  dcw  = diff --color-words
+  ds   = diff --stat
+  f    = fetch
+  fo   = fetch origin
+  g    = grep -n
+  l    = log --decorate --graph
+  l1   = log --graph --pretty=epic-exact -1
+  lcr  = log --pretty=cr
+  lcri = log --pretty=cri
+  le   = log --graph --pretty=epic-exact
+  leng = log --pretty=epic-exact
+  lf   = log --graph --pretty=epic-friend
+  lfng = log --pretty=epic-friend
+  lmd  = log --pretty=markdown-bullets
+  lng  = log --decorate
+  lt   = log --graph --pretty=epic-friend -10 --first-parent
+  m    = merge
+  mnf  = merge --no-ff
+  p    = pull
+  pr   = pull --rebase
+  r    = reset
+  ri   = rebase -i --autosquash
+  rilt = rebase -i --autosquash HEAD~10
+  rp   = rebase -p
+  rom  = rebase -p origin/master
+  rim  = rebase -i --autosquash origin/master
+  rl   = reflog --decorate
+  rs   = remote show
+  s    = status
+  sl   = stash list --pretty=epic-exact
+  sn   = show --stat --decorate
+  wc   = whatchanged --decorate --graph
+  pushnv = push --no-verify
+
+[github]
+  user = florapark
+
+[push]
+  default = upstream
+
+[mergetool "fugitive"]
+  cmd = "$EDITOR -f $MERGED -c 'Gdiff'"
+  trustExitCode = true
+
+[pretty]
+  epic-exact = %C(yellow)%h%Cred %ci%Creset%Creset%C(bold red) ~%Creset %C(cyan)%an%Creset%C(bold cyan),%Creset %s%C(bold green)%d%Creset
+  epic-friend = %C(yellow)%h%Creset %C(cyan)%an%Creset%C(bold cyan),%Creset %s%Cred %ar%C(bold green)%d%Creset
+  markdown-bullets = * %s%n%n%w(80, 2, 2)%-b
