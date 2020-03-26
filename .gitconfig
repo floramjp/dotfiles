@@ -15,7 +15,7 @@
   # list aliases
   la = "!git config -l | grep alias | cut -c 7-"
 
-  # frequent aliases
+  # frequent aliases. some are stolen from @RyanMcG
   kam      = "commit -am \"(>'')>\""
   amend    = !git add -A && git commit --amend --no-edit
   push     = !git push origin $(git rev-parse --abbrev-ref HEAD)
